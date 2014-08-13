@@ -53,7 +53,9 @@
             element.on('click', function(event) {
                 event.preventDefault();
                 event.stopPropagation();
-                
+                if(me.parent().is('.' + settings.disabledClass)){
+                    return;
+                }
                 var input = jQuery('input', replacement);
                 input.prop('checked',!input.prop('checked'))
                 	 .trigger('change');
