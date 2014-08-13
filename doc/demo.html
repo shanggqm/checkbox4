@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<title>demo of checkbox4</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../dist/css/checkbox4.css">
+		<style type="text/css">
+			body{font-size:14px;color:#444;}
+			label{vertical-align:middle;margin-right:20px;}
+			li{padding:10px 0;}
+		</style>
+		<script type="text/javascript" src="../dep/jquery.min.js"></script>
+		<script type="text/javascript" src="../src/checkbox4.js"></script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li>
+					<input type="checkbox" checked="checked" id="test-cb"/><label>checked</label>
+					<input type="button" value="toggle check" id="toggleCheck">
+				</li>
+				<li>
+					<input type="checkbox"/><label>unchecked</label>
+				</li>
+				<li>
+					<input type='button' value="click for partialChecked" id="partial-lb"/>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>
+					<input type="checkbox" data-type="partial-cb"/><label>partialChecked</label>					
+				</li>
+				<li>
+					<input type="checkbox" disabled="disabled" id="test-disabled"/><label>disabled</label>
+					<input type="button" value="toggle disabled" id="toggleDisabled">
+				</li>
+			</ul>
+			<div id="toolbar">
+				<input type="button" value="getParitialChecked" id="getParitialChecked"/>
+				<input type="button" value="getChecked" id="getChecked"/>
+				<input type="button" value="getUnchecked" id="getUnchecked"/>
+				<input type="button" value="getDisabled" id="getDisabled"/>
+			</div>
+			<div id="console"></div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			function log(s){
+				$('#console').append('<p>'+s+'</p>');
+			}
+			$('input[type=checkbox]').checkbox4();
+
+			$('#partial-lb').click(function(){
+				$('input[data-type=partial-cb]').checkbox4('partialCheck',[1,2,3,4]);
+			});
+
+			//test for code
+			$('#toggleCheck').click(function(){
+				$('#test-cb').checkbox4('check', !$('#test-cb').prop('checked'));
+			})
+
+			$('#toggleDisabled').click(function(){
+				$('#test-disabled').checkbox4('disabled', !$('#test-disabled').prop('disabled'));
+			});
+
+			$('#getParitialChecked').click(function(){
+				log($('input[data-partial]').length + ' partial checked');
+			});
+			$('#getChecked').click(function(){
+				log($('input[type=checkbox]:checked').length + ' full checked');
+			});
+			$('#getUnchecked').click(function(){
+				log($('input[type=checkbox]:not(:checked,[data-partial])').length + ' unchecked');
+			});
+			$('#getDisabled').click(function(){
+				log($('input[type=checkbox]:disabled').length + ' disabled');
+			});
+
+		});
+	</script>
+</html>

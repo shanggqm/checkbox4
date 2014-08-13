@@ -1,0 +1,36 @@
+{
+  "name": "checkbox4",
+  "version": "0.1.0",
+  "description": "a custom checkbox contains 4 status(checked, unchecked, partialChecked, disabled), it's only for multiLevel-checkbox",
+  "keywords": [
+    "checkbox"
+  ],
+  "homepage": "",
+  "bugs": {
+    "url": "",
+    "email": "gmqhust@126.com"
+  },
+  "author": {
+    "name": "shanggqm",
+    "email": "gmqhust@126.com"
+  },
+  "contributors": [
+    {
+      "name": "shanggqm",
+      "email": "gmqhust@126.com"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.6.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shanggqm/checkbox4.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-contrib-uglify": "~0.5.1",
+    "grunt-contrib-copy": "~0.5.0"
+  }
+}
